@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ikoshdev Portfolio</title>
+    <!-- Favicon (Browser tab ikonka) -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- CSS faylga ulanish -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts (shriftlar) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (Ikonkalar uchun) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Animatsiya CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Swiper Slider CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+<body>
+
+    <!-- Intro Animation (Kirish Qismi) -->
+    <div class="intro">
+        <div class="intro-content">
+            <h1 class="logo-header"><span class="captain-badge large">C</span> From<span class="logo-highlight"> Creata</span></h1>
+            <p class="logo-desc">CEO & FOUNDER Islomov Ikrom</p>
+        </div>
+    </div>
+
+    <!-- Preloader (Yuklanish ekrani) -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="myBar"></div>
+    </div>
+
+    <!-- Toast Notifications (Chiroyli xabarlar) -->
+    <div id="toast-box"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Falling Flowers Effect (Gullar yog'ishi) -->
+    <div id="flower-container"></div>
+
+    <!-- Navro'z Tabrigi Modali -->
+    <div id="navruz-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>🌸 Navro'z Muborak! 🌸</h2>
+            <p>Bahorning yangilanish bayrami sizga va oilangizga baxt, omad va farovonlik olib kelsin!</p>
+            <button class="btn btn-primary" id="close-modal-btn">Rahmat!</button>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal (Loyiha haqida to'liq) -->
+    <div id="portfolio-modal" class="modal">
+        <div class="modal-content portfolio-modal-content">
+            <span class="close-portfolio-modal">&times;</span>
+            <img id="modal-img" src="" alt="Loyiha rasmi">
+            <h3 id="modal-title"></h3>
+            <p id="modal-desc"></p>
+            <div class="modal-techs" id="modal-techs">
+                <!-- Texnologiyalar shu yerga tushadi -->
+            </div>
+            <a href="#" target="_blank" class="btn btn-primary" id="modal-link">Veb-saytga o'tish <i class="fas fa-external-link-alt"></i></a>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal (Galereya rasmlari uchun) -->
+    <div id="lightbox-modal" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div id="lightbox-caption"></div>
+    </div>
+
+    <!-- Navigatsiya -->
+    <nav data-aos="fade-down" data-aos-duration="1000">
+        <div class="logo"><span class="captain-badge">C</span> Creata</div>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link-item" data-lang="nav_home">Asosiy</a></li>
+            <li><a href="#about" class="nav-link-item" data-lang="nav_about">Men haqimda</a></li>
+            <li><a href="#portfolio" class="nav-link-item" data-lang="nav_portfolio">Portfolio</a></li>
+            <li><a href="#services" data-lang="nav_services">Xizmatlar</a></li>
+            <li><a href="#testimonials" data-lang="nav_testimonials">Fikrlar</a></li>
+            <li><a href="#contact" data-lang="nav_contact">Bog'lanish</a></li>
+        </ul>
+        
+        <!-- Tilni o'zgartirish -->
+        <div class="lang-switch">
+            <button onclick="changeLanguage('uz')" class="lang-btn active-lang">UZ</button>
+            <button onclick="changeLanguage('ru')" class="lang-btn">RU</button>
+            <button onclick="changeLanguage('en')" class="lang-btn">EN</button>
+        </div>
+
+        <!-- Music Toggle (Musiqa tugmasi) -->
+        <div class="music-toggle-wrapper" title="Musiqa">
+            <i class="fas fa-music" id="music-btn"></i>
+        </div>
+
+        <!-- Dark Mode Tugmasi -->
+        <div class="theme-switch-wrapper">
+            <i class="fas fa-sun" id="theme-icon"></i>
+        </div>
+
+        <!-- Hamburger Menu (Mobil uchun) -->
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Asosiy qism (Header) -->
+    <header id="home">
+        <!-- Orqa fon videosi -->
+        <div class="video-background">
+            <video autoplay muted loop id="bg-video">
+                <source src="mixkit-software-developer-working-while-drinks-coffee-1730-full-hd.mp4" type="video/mp4">
+                Sizning brauzeringiz video tegini qo'llab-quvvatlamaydi.
+            </video>
+        </div>
+        <div class="container header-container">
+            <div class="header-content" data-aos="fade-right" data-aos-delay="200">
+                <h3 data-lang="hero_hello">Salom, men</h3>
+                <h1><span class="highlight scramble-text">Islomov Ikromjon</span></h1>
+                <p>Men <span class="multiple-text"></span></p>
+                <div class="header-btns">
+                    <a href="#contact" class="btn btn-primary" data-lang="btn_contact">Bog'lanish</a>
+                    <a href="#about" class="btn btn-secondary" data-lang="btn_portfolio">Portfolio</a>
+                </div>
+            </div>
+            <div class="header-img" data-aos="fade-left" data-aos-delay="400">
+                <!-- Rasm shu yerga qo'yiladi. Rasmingiz nomini me.jpg qilib papkaga tashlang -->
+                <img src="photo_2026-03-15_13-32-41.jpg" alt="Mening Rasmim">
+            </div>
+        </div>
+    </header>
+
+    <!-- Men haqimda qismi -->
+    <section id="about">
+        <div class="container" data-aos="fade-up">
+            <h2 data-lang="about_title">Men haqimda</h2>
+            <p data-lang="about_text">
+                Men veb-dasturlashga qiziqaman va zamonaviy texnologiyalar yordamida foydali loyihalar yaratishni yaxshi ko'raman.
+            </p>
+
+            <!-- Creata haqida -->
+            <div class="creata-box" data-aos="fade-up" data-aos-delay="100">
+                <h3><span class="captain-badge" style="width:30px; height:24px; font-size:0.8rem; border-width:2px; border-radius: 50%;">C</span> Creata — Kelajakni Yaratamiz</h3>
+                <p>
+                    <strong>Creata</strong> — bu mening shaxsiy brendim va kelajakdagi global IT kompaniyam. Bizning missiyamiz — bizneslarni raqamli dunyoga olib kirish va innovatsion yechimlar orqali ularning rivojlanishiga hissa qo'shishdir. 
+                    <br><br><em>"G'oyadan — Raqamli Reallikka."</em>
+                </p>
+            </div>
+            
+            <div class="skills" data-aos="zoom-in" data-aos-delay="200">
+                <!-- Yangi Progress Bar uslubidagi ko'nikmalar -->
+                <div class="skill-bar">
+                    <div class="info"><p>HTML5</p><p>95%</p></div>
+                    <div class="bar"><span class="html"></span></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="info"><p>CSS3</p><p>90%</p></div>
+                    <div class="bar"><span class="css"></span></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="info"><p>JavaScript</p><p>85%</p></div>
+                    <div class="bar"><span class="js"></span></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="info"><p>React</p><p>80%</p></div>
+                    <div class="bar"><span class="react"></span></div>
+                </div>
+            </div>
+
+            <!-- Rasmlar Galereyasi -->
+            <div class="about-gallery" data-aos="fade-up" data-aos-delay="300">
+                <div class="gallery-item">
+                    <img src="photo_2026-03-15_15-04-39.jpg" alt="Ish joyim">
+                    <div class="gallery-text">Ish joyim</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_2026-03-15_15-07-54.jpg" alt="Kod yozish jarayoni">
+                    <div class="gallery-text">Kod yozish jarayoni</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="qqsq.jpg" alt="Uchrashuvlar">
+                    <div class="gallery-text">Uchrashuvlar</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_2026-03-15_15-08-02.jpg" alt="Tanaffus">
+                    <div class="gallery-text">Tanaffus</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio (Slider) qismi -->
+    <section id="portfolio">
+        <div class="container">
+            <h2 data-aos="fade-up" data-lang="portfolio_title">Mening Loyihalarim</h2>
+            
+            <!-- Swiper Slider -->
+            <div class="swiper mySwiper" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper-wrapper">
+                    <!-- 1-Loyiha -->
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="a5721725-2663-416e-8b3b-801cb39a9ac4.png" alt="Loyiha 1">
+                            <div class="project-info">
+                                <h3>Online Do'kon</h3>
+                                <p>E-commerce platforma dizayni</p>
+                                <button class="btn btn-sm view-project-btn" data-img="https://source.unsplash.com/random/800x600/?website" data-title="Online Do'kon" data-desc="Bu to'liq funksional onlayn do'kon platformasi. Unda mahsulotlarni savatga qo'shish, to'lov tizimlari va admin paneli mavjud." data-tech="HTML, CSS, React, Node.js" data-link="https://amazon.com">Ko'rish</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 2-Loyiha -->
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="d42090e3-d07a-4ab3-b496-0a37dbda6a5e.png" alt="Loyiha 2">
+                            <div class="project-info">
+                                <h3>CRM Tizim</h3>
+                                <p>Biznes boshqaruv paneli</p>
+                                <button class="btn btn-sm view-project-btn" data-img="https://source.unsplash.com/random/800x600/?coding" data-title="CRM Tizim" data-desc="Kompaniyalar uchun ichki boshqaruv tizimi. Xodimlarni nazorat qilish, statistika va hisobotlarni yurish uchun mo'ljallangan." data-tech="Vue.js, Firebase, Tailwind" data-link="https://crm.zoho.com">Ko'rish</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 3-Loyiha -->
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="38c54759-7a87-46a5-b384-c1ca83dd571a.png" alt="Loyiha 3">
+                            <div class="project-info">
+                                <h3>Yetkazib berish App</h3>
+                                <p>Mobil ilova interfeysi</p>
+                                <button class="btn btn-sm view-project-btn" data-img="https://source.unsplash.com/random/800x600/?mobile-app" data-title="Yetkazib berish App" data-desc="Ovqat va mahsulotlarni yetkazib berish xizmati uchun mobil ilova dizayni va prototipi." data-tech="Figma, Adobe XD, Flutter" data-link="https://uzum.uz/tezkor">Ko'rish</button>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- 4-Loyiha -->
+                     <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="a65c3989-ac13-4026-847e-d19ec5254480.png" alt="Loyiha 4">
+                            <div class="project-info">
+                                <h3>Landing Page</h3>
+                                <p>Mahsulot taqdimoti sayti</p>
+                                <button class="btn btn-sm view-project-btn" data-img="https://source.unsplash.com/random/800x600/?technology" data-title="Landing Page" data-desc="Yangi mahsulot uchun sotuvchi veb-sahifa. Yuqori konversiya va tez ishlashga moslashtirilgan." data-tech="HTML5, SASS, JavaScript, AOS" data-link="https://apple.com">Ko'rish</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Xizmatlarim qismi -->
+    <section id="services">
+        <div class="container">
+            <h2 data-aos="fade-up" data-lang="services_title">Xizmatlarim</h2>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card" data-tilt data-aos="flip-left" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Landing Page</h3>
+                    <p>Mahsulot yoki xizmatni reklama qilish uchun bir sahifali zamonaviy sayt.</p>
+                    <div class="service-price">1,500,000 so'm dan</div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card" data-tilt data-aos="flip-left" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Mukammal Vebsayt</h3>
+                    <p>Korporativ saytlar, onlayn do'konlar va murakkab platformalar.</p>
+                    <div class="service-price">3,000,000 so'm dan</div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card" data-tilt data-aos="flip-left" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Telegram Bot</h3>
+                    <p>Biznesingizni avtomatlashtirish uchun maxsus Telegram botlar.</p>
+                    <div class="service-price">1,000,000 so'm dan</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mijozlar Fikrlari (Testimonials) -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 data-aos="fade-up" data-lang="testimonials_title">Mijozlar Fikrlari</h2>
+            <div class="swiper testimonials-swiper" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper-wrapper">
+                    <!-- Fikr 1 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <img src="shoxe.jpg" alt="Mijoz rasmi" class="testimonial-img">
+                            <p class="testimonial-text">
+                                "Ikromjon bilan ishlash juda maroqli bo'ldi. Loyihani o'z vaqtida va a'lo darajada topshirdi. Professional yondashuv uchun rahmat!"
+                            </p>
+                            <div class="testimonial-client">
+                                <h4>Shoxrux Rustamov</h4>
+                                <span>Tadbirkor</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fikr 2 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <img src="asad.jpg" alt="Mijoz rasmi" class="testimonial-img">
+                            <p class="testimonial-text">
+                                "Saytimiz dizayni va tezligi ancha yaxshilandi. Natijadan juda mamnunmiz. Barchaga tavsiya qilaman!"
+                            </p>
+                            <div class="testimonial-client">
+                                <h4>Asadbek Rustamov</h4>
+                                <span>Marketolog</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fikr 3 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <img src="bobir.jpg" alt="Mijoz rasmi" class="testimonial-img">
+                            <p class="testimonial-text">
+                                "Telegram botimiz ajoyib ishlayapti. Mijozlar bilan ishlash ancha osonlashdi. Ishingizga rivoj!"
+                            </p>
+                            <div class="testimonial-client">
+                                <h4>Bexruz Rustamov</h4>
+                                <span>"Mega Shop" direktori</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aloqa Bo'limi -->
+    <section id="contact">
+        <div class="container">
+            <h2 data-aos="fade-up" data-lang="contact_title">Bog'lanish</h2>
+            <div class="contact-wrapper">
+                <!-- Chap tomon: Ma'lumotlar -->
+                <div class="contact-info" data-aos="fade-right">
+                    <h3 data-lang="contact_info_title">Ma'lumotlarim</h3>
+                    <p>Loyihangiz bormi yoki shunchaki gaplashmoqchimisiz? Menga aloqaga chiqing!</p>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+998 91 590 39 49</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>ikoshdev@gmail.com</span>
+                    </div>
+                    
+                    <div class="socials">
+                        <a href="https://t.me/ikoshdev" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://instagram.com/ikosh.dev" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <!-- O'ng tomon: Forma -->
+                <!-- DIQQAT: "https://formspree.io/f/SIZNING_KODINGIZ" ni o'zgartiring -->
+                <form id="contactForm" class="contact-form" data-aos="fade-left">
+                    <h3 data-lang="contact_form_title">Xabar yuborish</h3>
+                    <input type="text" name="name" placeholder="Ismingiz" required>
+                    <input type="email" name="email" placeholder="Emailingiz" required>
+                    <textarea name="message" rows="5" placeholder="Xabaringiz..." required></textarea>
+                    <button type="submit" class="btn btn-primary" data-lang="btn_send">Yuborish</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tepaga qaytish tugmasi -->
+    <button id="scrollTopBtn" title="Tepaga qaytish"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- AI Chatbot Widget -->
+    <div class="chat-widget">
+        <button id="chatToggleBtn">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <h3>AI Yordamchi</h3>
+                <span id="closeChat"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <div class="message bot-message">Salom! Men Ikromjonning AI yordamchisiman. Menga istalgan savolingizni bering!</div>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="chatInput" placeholder="Savol yozing...">
+                <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Social Bar -->
+    <div class="floating-socials">
+        <a href="https://t.me/ikoshdev" target="_blank" style="--i:1;"><i class="fab fa-telegram"></i></a>
+        <a href="https://instagram.com/ikosh.dev" target="_blank" style="--i:2;"><i class="fab fa-instagram"></i></a>
+        <a href="#" style="--i:3;"><i class="fab fa-linkedin"></i></a>
+        <a href="#" style="--i:4;"><i class="fab fa-github"></i></a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p class="copyright">&copy; 2024 Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+    <!-- Fon Musiqasi -->
+    <audio id="bgMusic" loop>
+        <source src="navruz.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Tovush Effektlari -->
+    <audio id="light-on-sound" src="https://www.fesliyanstudios.com/play-mp3/383"></audio>
+    <audio id="light-off-sound" src="https://www.fesliyanstudios.com/play-mp3/386"></audio>
+
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Typed.js (Yozuv effekti) -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <!-- Vanilla Tilt (3D effekt) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <!-- JavaScrip faylga ulanish -->
+    <script src="script.js"></script>
+</body>
+</html>
